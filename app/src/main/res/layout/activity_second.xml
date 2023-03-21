@@ -27,10 +27,23 @@
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/animationView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="250dp"
         app:lottie_rawRes="@raw/info"
         app:lottie_autoPlay="true"
-        app:lottie_loop="true"/>
+        app:lottie_loop="true"
+        android:layout_marginTop="11dp"
+        />
+
+    <Button
+        android:id="@+id/btnChange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Change"
+        android:backgroundTint="#CDCDCD"
+        android:textColor="@color/black"
+        android:layout_marginTop="11dp"
+        />
+
 
 
 </LinearLayout>
