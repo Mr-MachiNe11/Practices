@@ -18,7 +18,7 @@ import com.airbnb.lottie.LottieAnimationView;
 public class SecondActivity extends AppCompatActivity {
 
     TextView tvInfo;
-    Button btnChange;
+    Button btnChange, btnNext2;
     LottieAnimationView animationView;
 
     @SuppressLint("MissingInflatedId")
@@ -30,6 +30,7 @@ public class SecondActivity extends AppCompatActivity {
         tvInfo = findViewById(R.id.tvInfo);
         btnChange = findViewById(R.id.btnChange);
         animationView = findViewById(R.id.animationView);
+        btnNext2 = findViewById(R.id.btnNext2);
 
         Intent fromMain = getIntent();
         String name = fromMain.getStringExtra("Name");
@@ -48,6 +49,16 @@ public class SecondActivity extends AppCompatActivity {
 
                 animationView.setAnimation(R.raw.contact_info);
 
+            }
+        });
+
+        Intent iNext = new Intent(SecondActivity.this, ThirdActivity.class);
+        iNext.putExtra("title","ListView");
+
+        btnNext2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(iNext);
             }
         });
 
