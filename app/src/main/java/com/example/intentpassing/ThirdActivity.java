@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -19,6 +20,7 @@ public class ThirdActivity extends AppCompatActivity {
     ListView listView;
     Spinner spinner;
     AutoCompleteTextView acTxtView;
+    Button btnNext3;
     ArrayList<String> arrNames = new ArrayList<>();
     ArrayList<String> arrIds = new ArrayList<>();
     ArrayList<String> arrLang = new ArrayList<>();
@@ -31,6 +33,7 @@ public class ThirdActivity extends AppCompatActivity {
         listView = findViewById(R.id.listView);
         spinner = findViewById(R.id.spinner);
         acTxtView = findViewById(R.id.acTxtView);
+        btnNext3 = findViewById(R.id.btnNext3);
 
         Intent fromSecond = getIntent();
         String title = fromSecond.getStringExtra("title");
@@ -99,6 +102,17 @@ public class ThirdActivity extends AppCompatActivity {
         ArrayAdapter<String> acAdapter = new ArrayAdapter<>(ThirdActivity.this, android.R.layout.simple_list_item_1, arrLang);
         acTxtView.setAdapter(acAdapter);
         acTxtView.setThreshold(1);
+
+
+        Intent iNext2 = new Intent(ThirdActivity.this, FourthActivity.class);
+        iNext2.putExtra("title","RecyclerView");
+
+        btnNext3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(iNext2);
+            }
+        });
 
 
     }
