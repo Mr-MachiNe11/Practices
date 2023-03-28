@@ -27,7 +27,6 @@
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:src="@drawable/contact"
-                android:background="#CCCCCC"
 
                 />
             <LinearLayout
@@ -44,7 +43,7 @@
                     android:text="Contact"
                     android:textSize="22sp"
                     android:textStyle="bold"
-                    android:background="#CCCCCC"
+
 
                     />
 
@@ -54,7 +53,7 @@
                     android:id="@+id/tvNumber"
                     android:text="Contact Number"
                     android:textSize="16sp"
-                    android:background="#CCCCCC"
+
 
                     />
 

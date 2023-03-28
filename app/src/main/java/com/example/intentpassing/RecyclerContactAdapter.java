@@ -1,5 +1,6 @@
 package com.example.intentpassing;
 
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,47 +13,45 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class RecyclerContactAdapter extends RecyclerView.Adapter<RecyclerContactAdapter.ViewHolder> {
+public class RecyclerContactAdapter extends RecyclerView.Adapter<RecyclerContactAdapter.ViewHolder>{
 
     Context context;
-    ArrayList<ContactModel> arrContact;
+    ArrayList<ContactModel> arrContacts;
 
-    RecyclerContactAdapter(Context context, ArrayList<ContactModel> arrContact){
+    RecyclerContactAdapter(Context context, ArrayList<ContactModel> arrContacts){
         this.context = context;
-        this.arrContact = arrContact;
+        this.arrContacts = arrContacts;
     }
+
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
         View view = LayoutInflater.from(context).inflate(R.layout.contact_row, parent, false);
         ViewHolder viewHolder = new ViewHolder(view);
         return viewHolder;
-
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.imgContact.setImageResource(arrContact.get(position).img);
-        holder.tvName.setText(arrContact.get(position).name);
-        holder.tvNumber.setText(arrContact.get(position).number);
+        holder.imgContact.setImageResource(arrContacts.get(position).img);
+        holder.tvName.setText(arrContacts.get(position).name);
+        holder.tvNumber.setText(arrContacts.get(position).number);
     }
 
     @Override
     public int getItemCount() {
-        return arrContact.size();
+        return arrContacts.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView tvName, tvNumber;
         ImageView imgContact;
+        TextView tvName, tvNumber;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-
+            imgContact = itemView.findViewById(R.id.imgContact);
             tvName = itemView.findViewById(R.id.tvName);
             tvNumber = itemView.findViewById(R.id.tvNumber);
-            imgContact = itemView.findViewById(R.id.imgContact);
         }
     }
 }

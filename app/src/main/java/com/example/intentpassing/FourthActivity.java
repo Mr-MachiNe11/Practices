@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class FourthActivity extends AppCompatActivity {
 
     RecyclerView rcViewContact;
-    ArrayList<ContactModel> contactModel = new ArrayList<>();
+    ArrayList<ContactModel> arrContacts = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,26 +27,27 @@ public class FourthActivity extends AppCompatActivity {
 
         rcViewContact.setLayoutManager(new LinearLayoutManager(this));
 
-        contactModel.add(new ContactModel(R.drawable.a, "Avfbn gggh", "00887653"));
-        contactModel.add(new ContactModel(R.drawable.b, "Bggvv bbb", "00887653"));
-        contactModel.add(new ContactModel(R.drawable.c, "Ttjn ghghjj", "00887653"));
-        contactModel.add(new ContactModel(R.drawable.d, "Wffgg bjjj", "00887653"));
-        contactModel.add(new ContactModel(R.drawable.e, "Qrtgtgg vv", "00887653"));
-        contactModel.add(new ContactModel(R.drawable.f, "Xvvh iiij", "00887653"));
-        contactModel.add(new ContactModel(R.drawable.g, "Mnnb yyyy", "00887653"));
-        contactModel.add(new ContactModel(R.drawable.h, "Eeeee bbbb", "00887653"));
-        contactModel.add(new ContactModel(R.drawable.i, "IIIII nn", "00887653"));
-        contactModel.add(new ContactModel(R.drawable.j, "Qqqeeg vvv", "00887653"));
-        contactModel.add(new ContactModel(R.drawable.d, "Wffgg bjjj", "00887653"));
-        contactModel.add(new ContactModel(R.drawable.e, "Qrtgtgg vv", "00887653"));
-        contactModel.add(new ContactModel(R.drawable.f, "Xvvh iiij", "00887653"));
-        contactModel.add(new ContactModel(R.drawable.b, "Bggvv bbb", "00887653"));
-        contactModel.add(new ContactModel(R.drawable.c, "Ttjn ghghjj", "00887653"));
-        contactModel.add(new ContactModel(R.drawable.g, "Mnnb yyyy", "00887653"));
-        contactModel.add(new ContactModel(R.drawable.h, "Eeeee bbbb", "00887653"));
-        contactModel.add(new ContactModel(R.drawable.i, "IIIII nn", "00887653"));
+        arrContacts.add(new ContactModel(R.drawable.a, "Avfbn gggh", "00887653"));
+        arrContacts.add(new ContactModel(R.drawable.b, "Bggvv bbb", "00887653"));
+        arrContacts.add(new ContactModel(R.drawable.c, "Ttjn ghghjj", "00887653"));
+        arrContacts.add(new ContactModel(R.drawable.d, "Wffgg bjjj", "00887653"));
+        arrContacts.add(new ContactModel(R.drawable.e, "Qrtgtgg vv", "00887653"));
+        arrContacts.add(new ContactModel(R.drawable.f, "Xvvh iiij", "00887653"));
+        arrContacts.add(new ContactModel(R.drawable.g, "Mnnb yyyy", "00887653"));
+        arrContacts.add(new ContactModel(R.drawable.h, "Eeeee bbbb", "00887653"));
+        arrContacts.add(new ContactModel(R.drawable.i, "IIIII nn", "00887653"));
+        arrContacts.add(new ContactModel(R.drawable.j, "Qqqeeg vvv", "00887653"));
+        arrContacts.add(new ContactModel(R.drawable.d, "Wffgg bjjj", "00887653"));
+        arrContacts.add(new ContactModel(R.drawable.e, "Qrtgtgg vv", "00887653"));
+        arrContacts.add(new ContactModel(R.drawable.f, "Xvvh iiij", "00887653"));
+        arrContacts.add(new ContactModel(R.drawable.b, "Bggvv bbb", "00887653"));
+        arrContacts.add(new ContactModel(R.drawable.c, "Ttjn ghghjj", "00887653"));
+        arrContacts.add(new ContactModel(R.drawable.g, "Mnnb yyyy", "00887653"));
+        arrContacts.add(new ContactModel(R.drawable.h, "Eeeee bbbb", "00887653"));
+        arrContacts.add(new ContactModel(R.drawable.i, "IIIII nn", "00887653"));
 
-
+        RecyclerContactAdapter adapter = new RecyclerContactAdapter(this, arrContacts);
+        rcViewContact.setAdapter(adapter);
 
 
     }
