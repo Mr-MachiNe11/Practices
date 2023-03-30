@@ -39,12 +39,7 @@ public class MainActivity extends AppCompatActivity {
         arrContacts.add(new ContactsModel(R.drawable.d, "D", "344534665"));
         arrContacts.add(new ContactsModel(R.drawable.e, "E", "344534665"));
         arrContacts.add(new ContactsModel(R.drawable.f, "F", "344534665"));
-        arrContacts.add(new ContactsModel(R.drawable.g, "G", "344534665"));
-        arrContacts.add(new ContactsModel(R.drawable.h, "H", "344534665"));
-        arrContacts.add(new ContactsModel(R.drawable.i, "I", "344534665"));
-        arrContacts.add(new ContactsModel(R.drawable.j, "J", "344534665"));
-        arrContacts.add(new ContactsModel(R.drawable.k, "K", "344534665"));
-        arrContacts.add(new ContactsModel(R.drawable.l, "L", "344534665"));
+
 
 
         ContactAdapter adapter = new ContactAdapter(this, arrContacts);
