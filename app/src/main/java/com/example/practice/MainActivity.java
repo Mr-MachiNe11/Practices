@@ -5,12 +5,16 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
+    FloatingActionButton fab;
     ArrayList<ContactsModel> arrContacts = new ArrayList<>();
 
     @Override
@@ -20,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        fab = findViewById(R.id.fab);
 
         arrContacts.add(new ContactsModel(R.drawable.a, "A", "344534665"));
         arrContacts.add(new ContactsModel(R.drawable.b, "B", "344534665"));
@@ -41,9 +46,15 @@ public class MainActivity extends AppCompatActivity {
         arrContacts.add(new ContactsModel(R.drawable.f, "F", "344534665"));
 
 
-
         ContactAdapter adapter = new ContactAdapter(this, arrContacts);
         recyclerView.setAdapter(adapter);
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
 
 
