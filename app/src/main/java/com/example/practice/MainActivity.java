@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    FloatingActionButton fab;
+    FloatingActionButton btnDialog;
     ArrayList<ContactsModel> arrContacts = new ArrayList<>();
 
     @Override
@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        fab = findViewById(R.id.fab);
+        btnDialog = findViewById(R.id.btnDialog);
 
         arrContacts.add(new ContactsModel(R.drawable.a, "A", "344534665"));
         arrContacts.add(new ContactsModel(R.drawable.b, "B", "344534665"));
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         ContactAdapter adapter = new ContactAdapter(this, arrContacts);
         recyclerView.setAdapter(adapter);
 
-        fab.setOnClickListener(new View.OnClickListener() {
+        btnDialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
