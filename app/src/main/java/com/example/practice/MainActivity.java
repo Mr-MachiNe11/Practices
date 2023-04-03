@@ -86,10 +86,17 @@ public class MainActivity extends AppCompatActivity {
                             Toast.makeText(MainActivity.this, "Please, Enter Contact Number!", Toast.LENGTH_SHORT).show();
                         }
 
+                        arrContacts.add(new ContactsModel(name, number));
+                        adapter.notifyItemInserted(arrContacts.size()-1);
+                        recyclerView.scrollToPosition(arrContacts.size()-1);
+
+
 
 
                     }
                 });
+
+                dialog.show();
 
 
 

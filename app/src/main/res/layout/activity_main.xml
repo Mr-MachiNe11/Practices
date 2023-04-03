@@ -25,7 +25,7 @@
         android:layout_alignParentRight="true"
         android:layout_margin="21dp"
         android:src="@drawable/ic5"
-        android:backgroundTint="#fff"
+
 
 
         />
