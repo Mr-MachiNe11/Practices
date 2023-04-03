@@ -4,8 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -52,6 +56,43 @@ public class MainActivity extends AppCompatActivity {
         btnDialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Dialog dialog = new Dialog(MainActivity.this);
+                dialog.setContentView(R.layout.add_update_lay);
+
+                EditText edtNamne, edtNumber;
+                Button btnAction;
+
+                edtNamne = dialog.findViewById(R.id.edtName);
+                edtNumber = dialog.findViewById(R.id.edtNumber);
+                btnAction = dialog.findViewById(R.id.btnAction);
+
+                btnAction.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String name = "", number = "";
+
+                        if(!edtNamne.getText().toString().equals("")){
+                            name = edtNamne.getText().toString();
+                        }
+                        else {
+                            Toast.makeText(MainActivity.this, "Please, Enter Contact Name!", Toast.LENGTH_SHORT).show();
+                        }
+
+                        if(!edtNumber.getText().toString().equals("")){
+                            name = edtNumber.getText().toString();
+                        }
+                        else {
+                            Toast.makeText(MainActivity.this, "Please, Enter Contact Number!", Toast.LENGTH_SHORT).show();
+                        }
+
+
+
+                    }
+                });
+
+
+
 
             }
         });
