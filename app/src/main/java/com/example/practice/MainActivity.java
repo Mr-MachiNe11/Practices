@@ -90,8 +90,7 @@ public class MainActivity extends AppCompatActivity {
                         adapter.notifyItemInserted(arrContacts.size()-1);
                         recyclerView.scrollToPosition(arrContacts.size()-1);
 
-
-
+                        dialog.dismiss();
 
                     }
                 });

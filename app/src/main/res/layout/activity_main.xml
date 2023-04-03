@@ -18,17 +18,18 @@
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnDialog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btnDialog"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_margin="21dp"
-        android:src="@drawable/ic5"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="21dp"
 
-
-
-        />
+        android:backgroundTint="#fff"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="21dp"
+        android:layout_marginBottom="21dp"
+        android:src="@drawable/icon" />
 
 
 
