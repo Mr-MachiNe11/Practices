@@ -60,10 +60,10 @@ public class MainActivity extends AppCompatActivity {
                 Dialog dialog = new Dialog(MainActivity.this);
                 dialog.setContentView(R.layout.add_update_lay);
 
-                EditText edtNamne, edtNumber;
+                EditText edtName, edtNumber;
                 Button btnAction;
 
-                edtNamne = dialog.findViewById(R.id.edtName);
+                edtName = dialog.findViewById(R.id.edtName);
                 edtNumber = dialog.findViewById(R.id.edtNumber);
                 btnAction = dialog.findViewById(R.id.btnAction);
 
@@ -72,8 +72,8 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         String name = "", number = "";
 
-                        if(!edtNamne.getText().toString().equals("")){
-                            name = edtNamne.getText().toString();
+                        if(!edtName.getText().toString().equals("")){
+                            name = edtName.getText().toString();
                         }
                         else {
                             Toast.makeText(MainActivity.this, "Please, Enter Contact Name!", Toast.LENGTH_SHORT).show();
