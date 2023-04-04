@@ -1,9 +1,12 @@
 package com.example.practice;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -35,7 +38,6 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ContactAdapter.ViewHolder holder, int position) {
 
-        ContactsModel model = (ContactsModel) arrContacts.get(position);
         holder.imgContact.setImageResource(arrContacts.get(position).img);
         holder.tvName.setText(arrContacts.get(position).name);
         holder.tvNumber.setText(arrContacts.get(position).number);
@@ -43,6 +45,24 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
         holder.llrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Dialog dialog = new Dialog(context);
+                dialog.setContentView(R.layout.add_update_lay);
+
+                EditText edtName = dialog.findViewById(R.id.edtName);
+                EditText edtNumber = dialog.findViewById(R.id.edtNumber);
+                Button btnAction = dialog.findViewById(R.id.btnAction);
+                TextView txtTitle = dialog.findViewById(R.id.txtTitle);
+
+                txtTitle.setText("Update Contact");
+                btnAction.setText("Update");
+                btnAction.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                    }
+                });
+
 
             }
         });
