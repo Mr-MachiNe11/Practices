@@ -1,8 +1,10 @@
 package com.example.practice;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +31,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
         this.context = context;
     }
 
+
     @NonNull
     @Override
     public ContactAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -45,7 +48,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
         holder.tvName.setText(model.name);
         holder.tvNumber.setText(model.number);
 
-        holder.llrow.setOnClickListener(new View.OnClickListener() {
+        holder.llRow.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
@@ -93,11 +96,43 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
 
                 dialog.show();
 
-
             }
         });
 
+        //delete
+        holder.llRow.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(context)
+                        .setTitle("Delete Contact")
+                        .setMessage("Are you sure, you want to delete?")
+                        .setIcon(R.drawable.baseline_delete_24)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                                arrContacts.remove(position);
+                                notifyItemRemoved(position);
+
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        });
+
+                builder.show();
+                return true;
+            }
+        });
+
+
     }
+
+
 
     @Override
     public int getItemCount() {
@@ -107,13 +142,13 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imgContact;
         TextView tvName, tvNumber;
-        LinearLayout llrow;
+        LinearLayout llRow;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imgContact = itemView.findViewById(R.id.imgContact);
             tvName = itemView.findViewById(R.id.tvName);
             tvNumber = itemView.findViewById(R.id.tvNumber);
-            llrow = itemView.findViewById(R.id.llRow);
+            llRow = itemView.findViewById(R.id.llRow);
         }
     }
 }
