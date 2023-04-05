@@ -1,11 +1,15 @@
 package com.example.intentpassing;
 
 
+import android.app.Dialog;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -40,6 +44,31 @@ public class RecyclerContactAdapter extends RecyclerView.Adapter<RecyclerContact
         holder.tvName.setText(model.name);
         holder.tvNumber.setText(model.number);
 
+        holder.llRow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Dialog dialog = new Dialog(context);
+                dialog.setContentView(R.layout.add_update_lay);
+
+                TextView txtTitle = dialog.findViewById(R.id.txtTitle);
+                EditText edtName = dialog.findViewById(R.id.edtName);
+                EditText edtNumber = dialog.findViewById(R.id.edtNumber);
+                Button btnAction = dialog.findViewById(R.id.btnAction);
+
+                txtTitle.setText("Update Contact");
+                btnAction.setText("Update");
+
+
+
+                dialog.show();
+
+            }
+
+
+        });
+
+
+
     }
 
     @Override
@@ -50,11 +79,13 @@ public class RecyclerContactAdapter extends RecyclerView.Adapter<RecyclerContact
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imgContact;
         TextView tvName, tvNumber;
+        LinearLayout llRow;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imgContact = itemView.findViewById(R.id.imgContact);
             tvName = itemView.findViewById(R.id.tvName);
             tvNumber = itemView.findViewById(R.id.tvNumber);
+            llRow = itemView.findViewById(R.id.llRow);
         }
     }
 }
