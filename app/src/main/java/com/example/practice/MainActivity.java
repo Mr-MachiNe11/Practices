@@ -30,28 +30,24 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         btnDialog = findViewById(R.id.btnDialog);
 
-        arrContacts.add(new ContactsModel("A", "344534665"));
-        arrContacts.add(new ContactsModel( "B", "344534665"));
-        arrContacts.add(new ContactsModel( "C", "344534665"));
-        arrContacts.add(new ContactsModel("D", "344534665"));
-        arrContacts.add(new ContactsModel( "E", "344534665"));
-        arrContacts.add(new ContactsModel( "F", "344534665"));
-        arrContacts.add(new ContactsModel( "G", "344534665"));
-        arrContacts.add(new ContactsModel( "H", "344534665"));
-        arrContacts.add(new ContactsModel( "I", "344534665"));
-        arrContacts.add(new ContactsModel("J", "344534665"));
-        arrContacts.add(new ContactsModel( "K", "344534665"));
-        arrContacts.add(new ContactsModel( "L", "344534665"));
-        arrContacts.add(new ContactsModel( "A", "344534665"));
-        arrContacts.add(new ContactsModel( "B", "344534665"));
-        arrContacts.add(new ContactsModel("C", "344534665"));
-        arrContacts.add(new ContactsModel( "D", "344534665"));
-        arrContacts.add(new ContactsModel( "E", "344534665"));
-        arrContacts.add(new ContactsModel( "F", "344534665"));
-        arrContacts.add(new ContactsModel( "C", "344534665"));
-        arrContacts.add(new ContactsModel( "D", "344534665"));
-        arrContacts.add(new ContactsModel( "E", "344534665"));
-        arrContacts.add(new ContactsModel( "F", "344534665"));
+        arrContacts.add(new ContactsModel(R.drawable.a, "A", "344534665"));
+        arrContacts.add(new ContactsModel(R.drawable.b, "B", "344534665"));
+        arrContacts.add(new ContactsModel(R.drawable.c, "C", "344534665"));
+        arrContacts.add(new ContactsModel(R.drawable.d, "D", "344534665"));
+        arrContacts.add(new ContactsModel(R.drawable.e, "E", "344534665"));
+        arrContacts.add(new ContactsModel(R.drawable.f, "F", "344534665"));
+        arrContacts.add(new ContactsModel(R.drawable.g, "G", "344534665"));
+        arrContacts.add(new ContactsModel(R.drawable.h, "H", "344534665"));
+        arrContacts.add(new ContactsModel(R.drawable.i, "I", "344534665"));
+        arrContacts.add(new ContactsModel(R.drawable.j, "J", "344534665"));
+        arrContacts.add(new ContactsModel(R.drawable.k, "K", "344534665"));
+        arrContacts.add(new ContactsModel(R.drawable.l, "L", "344534665"));
+        arrContacts.add(new ContactsModel(R.drawable.a, "A", "344534665"));
+        arrContacts.add(new ContactsModel(R.drawable.b, "B", "344534665"));
+        arrContacts.add(new ContactsModel(R.drawable.c, "C", "344534665"));
+        arrContacts.add(new ContactsModel(R.drawable.d, "D", "344534665"));
+        arrContacts.add(new ContactsModel(R.drawable.e, "E", "344534665"));
+        arrContacts.add(new ContactsModel(R.drawable.f, "F", "344534665"));
 
 
         ContactAdapter adapter = new ContactAdapter(this, arrContacts);
@@ -74,24 +70,25 @@ public class MainActivity extends AppCompatActivity {
                 btnAction.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        String name = "", number = "";
+                        String strName = edtName.getEditableText().toString().trim();
+                        String strNumber = edtNumber.getEditableText().toString().trim();
 
-                        if(!edtName.getText().toString().equals("")){
-                            name = edtName.getText().toString();
-                        }
-                        else {
+
+                        if (strName.isEmpty()){
                             Toast.makeText(MainActivity.this, "Please, Enter Contact Name!", Toast.LENGTH_SHORT).show();
+                            return;
                         }
 
-                        if(!edtNumber.getText().toString().equals("")){
-                            name = edtNumber.getText().toString();
-                        }
-                        else {
-                            Toast.makeText(MainActivity.this, "Please, Enter Contact Number!", Toast.LENGTH_SHORT).show();
+
+                        if (strNumber.isEmpty()){
+                            Toast.makeText(MainActivity.this, "Please, Enter Contact Name!", Toast.LENGTH_SHORT).show();
+                            return;
                         }
 
-                        arrContacts.add(new ContactsModel(name, number));
+
+                        arrContacts.add(new ContactsModel(0,strName, strNumber));
                         adapter.notifyItemInserted(arrContacts.size()-1);
+                        adapter.notifyDataSetChanged();
                         recyclerView.scrollToPosition(arrContacts.size()-1);
 
 

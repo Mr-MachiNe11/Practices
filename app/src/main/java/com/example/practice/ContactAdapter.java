@@ -41,7 +41,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ContactAdapter.ViewHolder holder,int position) {
+    public void onBindViewHolder(@NonNull ContactAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
         ContactsModel model = (ContactsModel) arrContacts.get(position);
         holder.imgContact.setImageResource(model.img);
@@ -70,23 +70,22 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
                 btnAction.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        String name = "", number = "";
+                        String strName = edtName.getEditableText().toString().trim();
+                        String strNumber = edtNumber.getEditableText().toString().trim();
 
-                        if(!edtName.getText().toString().equals("")){
-                            name = edtName.getText().toString();
-                        }
-                        else {
+
+                        if (strName.isEmpty()){
                             Toast.makeText(context, "Please, Enter Contact Name!", Toast.LENGTH_SHORT).show();
+                            return;
                         }
 
-                        if(!edtNumber.getText().toString().equals("")){
-                            name = edtNumber.getText().toString();
-                        }
-                        else {
-                            Toast.makeText(context, "Please, Enter Contact Number!", Toast.LENGTH_SHORT).show();
+
+                        if (strNumber.isEmpty()){
+                            Toast.makeText(context, "Please, Enter Contact Name!", Toast.LENGTH_SHORT).show();
+                            return;
                         }
 
-                        arrContacts.set(position, new ContactsModel(name, number));
+                        arrContacts.set(position, new ContactsModel(model.img,strName, strNumber));
                         notifyItemChanged(position);
 
                         dialog.dismiss();
