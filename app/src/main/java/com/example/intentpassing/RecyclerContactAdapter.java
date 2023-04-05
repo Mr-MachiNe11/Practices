@@ -1,6 +1,7 @@
 package com.example.intentpassing;
 
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -37,7 +39,7 @@ public class RecyclerContactAdapter extends RecyclerView.Adapter<RecyclerContact
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
         ContactModel model = (ContactModel) arrContacts.get(position);
         holder.imgContact.setImageResource(model.img);
@@ -58,7 +60,32 @@ public class RecyclerContactAdapter extends RecyclerView.Adapter<RecyclerContact
                 txtTitle.setText("Update Contact");
                 btnAction.setText("Update");
 
+                edtName.setText(arrContacts.get(position).name);
+                edtNumber.setText(arrContacts.get(position).number);
 
+                btnAction.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String strName = edtName.getEditableText().toString().trim();
+                        String strNumber = edtNumber.getEditableText().toString().trim();
+
+                        if (strName.isEmpty()){
+                            Toast.makeText(context, "Please, Enter Contact Name!", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+
+                        if (strNumber.isEmpty()){
+                            Toast.makeText(context, "Please, Enter Contact Number!", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+
+                        arrContacts.set(position, new ContactModel(model.img, strName, strNumber));
+                        notifyItemChanged(position);
+
+                        dialog.dismiss();
+
+                    }
+                });
 
                 dialog.show();
 
