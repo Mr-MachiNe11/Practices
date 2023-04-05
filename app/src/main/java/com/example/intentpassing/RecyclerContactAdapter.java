@@ -34,9 +34,12 @@ public class RecyclerContactAdapter extends RecyclerView.Adapter<RecyclerContact
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.imgContact.setImageResource(arrContacts.get(position).img);
-        holder.tvName.setText(arrContacts.get(position).name);
-        holder.tvNumber.setText(arrContacts.get(position).number);
+
+        ContactModel model = (ContactModel) arrContacts.get(position);
+        holder.imgContact.setImageResource(model.img);
+        holder.tvName.setText(model.name);
+        holder.tvNumber.setText(model.number);
+
     }
 
     @Override
