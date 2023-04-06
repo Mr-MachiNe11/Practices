@@ -2,8 +2,10 @@ package com.example.intentpassing;
 
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -91,10 +93,37 @@ public class RecyclerContactAdapter extends RecyclerView.Adapter<RecyclerContact
 
             }
 
-
         });
 
+        //delete
 
+        holder.llRow.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(context)
+                        .setTitle("Delete Contact")
+                        .setMessage("Are you sure, you want to delete?")
+                        .setIcon(R.drawable.baseline_delete_24)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                arrContacts.remove(position);
+                                notifyItemRemoved(position);
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        });
+
+                builder.show();
+                return true;
+            }
+
+        });
 
     }
 
