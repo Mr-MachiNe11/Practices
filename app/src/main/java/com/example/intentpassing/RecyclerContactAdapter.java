@@ -9,6 +9,8 @@ import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -125,6 +127,8 @@ public class RecyclerContactAdapter extends RecyclerView.Adapter<RecyclerContact
 
         });
 
+        setAnimation(holder.itemView, position);
+
     }
 
     @Override
@@ -143,5 +147,10 @@ public class RecyclerContactAdapter extends RecyclerView.Adapter<RecyclerContact
             tvNumber = itemView.findViewById(R.id.tvNumber);
             llRow = itemView.findViewById(R.id.llRow);
         }
+    }
+
+    private void setAnimation(View viewToAnimate, int position){
+        Animation animation = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
+        viewToAnimate.startAnimation(animation);
     }
 }
