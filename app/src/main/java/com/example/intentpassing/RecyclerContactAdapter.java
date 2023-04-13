@@ -25,6 +25,7 @@ import java.util.ArrayList;
 
 public class RecyclerContactAdapter extends RecyclerView.Adapter<RecyclerContactAdapter.ViewHolder>{
 
+    private int lastPosition = -1;
     Context context;
     ArrayList<ContactModel> arrContacts;
 
@@ -150,7 +151,12 @@ public class RecyclerContactAdapter extends RecyclerView.Adapter<RecyclerContact
     }
 
     private void setAnimation(View viewToAnimate, int position){
-        Animation animation = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
-        viewToAnimate.startAnimation(animation);
+
+        if(position > lastPosition){
+            Animation animation = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
+            viewToAnimate.startAnimation(animation);
+            lastPosition = position;
+        }
+
     }
 }
