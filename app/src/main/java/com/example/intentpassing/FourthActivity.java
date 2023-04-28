@@ -29,8 +29,8 @@ public class FourthActivity extends AppCompatActivity {
         setContentView(R.layout.activity_fourth);
 
         Intent fromThird = getIntent();
-        String title = fromThird.getStringExtra("title");
-        getSupportActionBar().setTitle(title);
+        //String title = fromThird.getStringExtra("title");
+        //getSupportActionBar().setTitle(title);
 
         rcViewContact = findViewById(R.id.rcViewContact);
         rcViewContact.setLayoutManager(new LinearLayoutManager(this));

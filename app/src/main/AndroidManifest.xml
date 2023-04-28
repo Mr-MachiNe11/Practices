@@ -9,17 +9,22 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.IntentPassing"
         tools:targetApi="31">
         <activity
-            android:name=".FourthActivity"
+            android:name=".FivthActivity"
             android:exported="false" />
+        <activity
+            android:name=".FourthActivity"
+            android:exported="false"
+            android:theme="@style/MyThemeNoActionBar" />
         <activity
             android:name=".ThirdActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".SplashActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/MyThemeNoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,10 +33,12 @@
         </activity>
         <activity
             android:name=".SecondActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".MainActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>
